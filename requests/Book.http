@@ -1,0 +1,21 @@
+GET http://localhost:3000/book
+
+###
+POST http://localhost:3000/book
+content-type: application/json
+
+{
+    "isbn": "978-8575225633",    
+    "title": "Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos",    
+    "description": "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.",    
+    "publicationDate": "2023-09-24",    
+    "authorId": "e16778d1-d9db-4832-8e25-c58bbc18c2d4",    
+    "publisher": "Novatec Editora",    
+    "pages": 300,    
+    "tags": [
+        "ALGORITHMS",
+        "SOFTWARE_DEVELOPMENT"
+    ],    
+    "language": "PORTUGUESE",
+    "coverUrl": "https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg"
+}

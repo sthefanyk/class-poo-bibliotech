@@ -1,0 +1,10 @@
+GET http://localhost:3000/author
+
+###
+POST http://localhost:3000/author
+content-type: application/json
+
+{
+    "name": "John Doe",    
+    "biography": "johndoe biography"
+}

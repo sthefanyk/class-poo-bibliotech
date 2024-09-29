@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotech</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex flex-col bg-[#D4C8B8] overflow-x-hidden text-[#1F2022]" 
+    style="font-family: 'Montserrat', sans-serif; font-weight: 400;"
+>
+    <div class="flex absolute -z-10">
+        <img th:src="@{/images/headerDark.png}" alt="" class="">
+        <img th:src="@{/images/headerDark.png}" alt="" class="">
+    </div>
+    <header class="h-[140px] flex px-8 items-center gap-4">
+        <div class="pr-8">
+            <img th:src="@{/icons/logo.svg}" alt="" class="w-[110px]">
+        </div>
+
+        <div class="flex-1">
+            <div class="relative rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm">
+                    <img th:src="@{/icons/search.svg}" alt="" class="h-6">
+                </span>
+              </div>
+              <input 
+                type="text" 
+                name="nameBook" 
+                id="nameBook" 
+                class="
+                    block w-full h-12 rounded-md border-0 py-1.5 pl-12 pr-20 text-[#D4C8B8] ring-1 ring-inset ring-[#505059] 
+                    placeholder:text-[#7C7C8A] focus:ring-2 focus:ring-inset focus:ring-[#716C2C] sm:text-sm sm:leading-6
+                    bg-transparent
+                " 
+                placeholder="Busque pelo título do livro..."
+                >
+            </div>
+        </div>
+
+        <div>
+            <div class="relative inline-block w-40">
+                <select id="statusFilter"
+                    class="block w-full h-12 appearance-none bg-[#716C2C] text-[#FFFFFF] py-2 px-3 pr-8 rounded-md leading-tight focus:outline-none focus:border-[#4E995E]">
+                    <option value="All" class="bg-[#1F2022]" >Todos</option>
+                    <option value="Pending" class="bg-[#1F2022]">Lidos</option>
+                    <option value="In Progress" class="bg-[#1F2022]">Emprestados</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#FFFFFF]">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-5-5h10l-5 5z"/></svg>
+                </div>
+              </div>
+        </div>
+    </header>
+    <div class="flex-1 flex py-8 pl-8 gap-20">
+        <nav class="flex flex-col gap-4 justify-end h-full text-lg font-medium">
+            <a href="" class="flex gap-2 text-[#716C2C]"> 
+                <img th:src="@{/icons/book.svg}" alt="" class="">
+                Books
+            </a>
+            <a href="" class="flex gap-2 "> 
+                <img th:src="@{/icons/admin.svg}" alt="" class="">
+                Administração
+            </a>
+            <a href="" class="flex gap-2 "> 
+                <img th:src="@{/icons/config.svg}" alt="" class="">
+                Configurações
+            </a>
+        </nav>
+        <main class="flex-1 flex gap-8 mt-10">
+            <div class="flex flex-col gap-2">
+                <div class="w-[287px]">
+                    <img src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                </div>
+                <div class="flex justify-between">
+                    <div class="flex">
+                        <img th:src="@{/icons/star.svg}" alt="" class="">
+                        <img th:src="@{/icons/star.svg}" alt="" class="">
+                        <img th:src="@{/icons/star.svg}" alt="" class="">
+                        <img th:src="@{/icons/star.svg}" alt="" class="">
+                        <img th:src="@{/icons/star.svg}" alt="" class="">
+                    </div>
+                    <div class="text-md font-bold">
+                        <span>154</span>
+                        <span>/</span>
+                        <span>300</span>
+                        <span>pages</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-8">
+                <div class="flex flex-col gap-2">
+                    <div class="text-3xl font-bold" style="font-family: 'Source Serif 4', serif; font-weight: 900;">Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos</div>
+                    <div class="text-lg font-semibold">
+                        <span class="text-[#505059]">by</span> 
+                        <span>Aditya Bhargava</span>
+                    </div>
+                </div>
+                <div class="text-lg">
+                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. 
+                </div>
+                <div class="h-[1px] w-full bg-[#7C7C8A]"></div>
+                <div class="flex flex-col gap-4">
+                    <div class="w-full flex">
+                        <div class="text-lg font-semibold flex-1">ISBN</div>
+                        <div class="text-lg font-base w-[60%]">978-8575225633</div>
+                    </div>
+                    <div class="w-full flex">
+                        <div class="text-lg font-semibold flex-1">Data de Publicação</div>
+                        <div class="text-lg font-base w-[60%]">1 de setembro de 2016 (edição brasileira)</div>
+                    </div>
+                    <div class="w-full flex">
+                        <div class="text-lg font-semibold flex-1">Editora</div>
+                        <div class="text-lg font-base w-[60%]">Novatec Editora</div>
+                    </div>
+                    <div class="w-full flex">
+                        <div class="text-lg font-semibold flex-1">Gênero</div>
+                        <div class="text-lg font-base w-[60%]">Tecnologia, Ciência da Computação, Programação</div>
+                    </div>
+                    <div class="w-full flex">
+                        <div class="text-lg font-semibold flex-1">Idioma</div>
+                        <div class="text-lg font-base w-[60%]">Português (edição brasileira)</div>
+                    </div>
+                </div>
+                <div class="h-[1px] w-full bg-[#7C7C8A]"></div>
+            </div>
+        </main>
+        <aside class="w-[35%] flex flex-col justify-between py-10">
+            <section class="w-full">
+                <div class="flex gap-14 -mb-2 pl-12">
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="
+                        w-full h-0 
+                        border-l-[20px] border-l-transparent 
+                        border-b-[14px] border-b-[#424347]"
+                    ></div>
+                    <div class="h-2 w-full bg-[#1F2022]"></div>
+                </div>
+            </section>
+            <section class="w-full">
+                <div class="flex gap-14 -mb-2 pl-12">
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="
+                        w-full h-0 
+                        border-l-[20px] border-l-transparent 
+                        border-b-[14px] border-b-[#424347]"
+                    ></div>
+                    <div class="h-2 w-full bg-[#1F2022]"></div>
+                </div>
+            </section>
+            <section class="w-full">
+                <div class="flex gap-14 -mb-2 pl-12">
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                    <div class="w-28 shadow-2xl">
+                        <img class="w-full h-auto" src="https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="
+                        w-full h-0 
+                        border-l-[20px] border-l-transparent 
+                        border-b-[14px] border-b-[#424347]"
+                    ></div>
+                    <div class="h-2 w-full bg-[#1F2022]"></div>
+                </div>
+            </section>
+        </aside>
+    </div>
+</body>
+</html>

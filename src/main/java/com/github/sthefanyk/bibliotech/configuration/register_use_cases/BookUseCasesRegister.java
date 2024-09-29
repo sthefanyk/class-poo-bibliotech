@@ -5,9 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.github.sthefanyk.bibliotech.contracts.AuthorRepositoryAdapter;
 import com.github.sthefanyk.bibliotech.contracts.BookRepositoryAdapter;
-import com.github.sthefanyk.bibliotech.repositories.in_memory.InMemoryAuthorRepository;
-import com.github.sthefanyk.bibliotech.repositories.in_memory.InMemoryBookRepository;
 import com.github.sthefanyk.bibliotech.use_cases.book.CreateBookUseCase;
+import com.github.sthefanyk.bibliotech.use_cases.book.FindByIdBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.ListAllBooksUseCase;
 
 @Configuration
@@ -29,4 +28,10 @@ public class BookUseCasesRegister {
     public ListAllBooksUseCase listAllBooksUseCase() {
         return new ListAllBooksUseCase(this.bookRepository);
     }
+
+    @Bean
+    public FindByIdBookUseCase findByIdBookUseCase() {
+        return new FindByIdBookUseCase(this.bookRepository);
+    }
+
 }

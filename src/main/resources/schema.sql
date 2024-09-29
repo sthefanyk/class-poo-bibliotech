@@ -6,14 +6,15 @@ CREATE TABLE IF NOT EXISTS authors (
 
 CREATE TABLE IF NOT EXISTS books (
     id VARCHAR(255) PRIMARY KEY,
-    isbn VARCHAR(13) NOT NULL,
+    isbn VARCHAR(14) NOT NULL,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    publication_date DATE,
+    publication_date DATE NOT NULL,
     author_id VARCHAR(255) NOT NULL,
     publisher VARCHAR(255) NOT NULL,
-    pages INT,
+    pages INT NOT NULL,
     language VARCHAR(50) NOT NULL,
     cover_url VARCHAR(255) NOT NULL,
+    tags VARCHAR(255),
     FOREIGN KEY (author_id) REFERENCES authors(id)
 );

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.github.sthefanyk.bibliotech.contracts.AuthorRepositoryAdapter;
 import com.github.sthefanyk.bibliotech.use_cases.author.CreateAuthorUseCase;
+import com.github.sthefanyk.bibliotech.use_cases.author.FindByIdAuthorUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.author.ListAllAuthorsUseCase;
 
 @Configuration
@@ -23,5 +24,10 @@ public class AuthorUseCasesRegister {
     @Bean
     public ListAllAuthorsUseCase listAllAuthorsUseCase() {
         return new ListAllAuthorsUseCase(this.authorRepository);
+    }
+
+    @Bean
+    public FindByIdAuthorUseCase findByIdAuthorUseCase() {
+        return new FindByIdAuthorUseCase(this.authorRepository);
     }
 }

@@ -1,6 +1,18 @@
 GET http://localhost:3000/author
 
 ###
+GET http://localhost:3000/author/ea24035b-28ce-4385-8e5f-50d8cb5a754e
+
+###
+POST http://localhost:3000/author
+content-type: application/json
+
+{
+    "name": "Aditya Bhargava",    
+    "biography": "Aditya Bhargava biography"
+}
+
+###
 POST http://localhost:3000/author
 content-type: application/json
 

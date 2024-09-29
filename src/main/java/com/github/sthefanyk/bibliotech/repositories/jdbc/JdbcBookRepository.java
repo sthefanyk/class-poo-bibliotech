@@ -7,14 +7,17 @@ import org.springframework.stereotype.Repository;
 import com.github.sthefanyk.bibliotech.contracts.BookRepositoryAdapter;
 import com.github.sthefanyk.bibliotech.models.Author;
 import com.github.sthefanyk.bibliotech.models.Book;
+import com.github.sthefanyk.bibliotech.models.Tag;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Repository
 public class JdbcBookRepository implements BookRepositoryAdapter {
@@ -29,18 +32,27 @@ public class JdbcBookRepository implements BookRepositoryAdapter {
 
     @Override
     public void create(Book book) {
-        String sql = "INSERT INTO books (id, isbn, title, description, publication_date, author_id, publisher, pages, language, cover_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, book.getId(), book.getIsbn(), book.getTitle(),
+        String tags = String.join(",", book.getTags().stream()
+            .map(Tag::toString)
+            .collect(Collectors.toList()));
+
+        String sql = "INSERT INTO books (id, isbn, title, description, publication_date, author_id, publisher, pages, language, cover_url, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        jdbcTemplate.update(sql, book.getId().toString(), book.getIsbn().getCode(), book.getTitle(),
                 book.getDescription(), book.getPublicationDate(), book.getAuthor().getId().toString(),
-                book.getPublisher(), book.getPages(), book.getLanguage().toString(), book.getCoverUrl());
+                book.getPublisher(), book.getPages(), book.getLanguage().toString(), book.getCoverUrl().toString(), tags);
     }
 
     @Override
     public void save(Book book) {
-        String sql = "UPDATE books SET isbn = ?, title = ?, description = ?, publication_date = ?, author_id = ?, publisher = ?, pages = ?, language = ?, cover_url = ? WHERE id = ?";
-        jdbcTemplate.update(sql, book.getIsbn(), book.getTitle(), book.getDescription(),
+        String tags = String.join(",", book.getTags().stream()
+            .map(Tag::toString)
+            .collect(Collectors.toList()));
+
+        String sql = "UPDATE books SET isbn = ?, title = ?, description = ?, publication_date = ?, author_id = ?, publisher = ?, pages = ?, language = ?, cover_url = ?, tags = ? WHERE id = ?";
+        jdbcTemplate.update(sql, book.getIsbn().getCode(), book.getTitle(), book.getDescription(),
                 book.getPublicationDate(), book.getAuthor().getId().toString(), book.getPublisher(),
-                book.getPages(), book.getLanguage().toString(), book.getCoverUrl(), book.getId().toString());
+                book.getPages(), book.getLanguage().toString(), book.getCoverUrl().toString(), tags, book.getId().toString());
     }
 
     @Override
@@ -75,9 +87,10 @@ public class JdbcBookRepository implements BookRepositoryAdapter {
             Integer pages = rs.getInt("pages");
             String coverUrl = rs.getString("cover_url");
             String language = rs.getString("language");
-
+            
             String tagsString = rs.getString("tags");
-            List<String> tags = Arrays.asList(tagsString.split(","));
+            List<String> tags = tagsString != null ? Arrays.asList(tagsString.split(",")) : new ArrayList<>();
+
 
             return new Book(Optional.of(id), isbn, title, description, publicationDate.toString(), author, 
                     publisher, pages, tags, language, coverUrl);

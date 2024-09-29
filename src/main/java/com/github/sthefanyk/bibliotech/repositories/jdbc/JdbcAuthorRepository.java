@@ -21,7 +21,7 @@ public class JdbcAuthorRepository implements AuthorRepositoryAdapter {
 
     @Override
     public void create(Author author) {
-        String sql = "INSERT INTO authors (id, name, biography) VALUES (?, ?, ?)"; // Nome da tabela corrigido
+        String sql = "INSERT INTO authors (id, name, biography) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, author.getId().toString(), author.getName(), author.getBiography());
     }
 

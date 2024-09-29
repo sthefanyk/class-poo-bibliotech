@@ -3,15 +3,12 @@ package com.github.sthefanyk.bibliotech.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.sthefanyk.bibliotech.contracts.AuthorRepositoryAdapter;
-import com.github.sthefanyk.bibliotech.contracts.BookRepositoryAdapter;
-import com.github.sthefanyk.bibliotech.repositories.in_memory.InMemoryAuthorRepository;
-import com.github.sthefanyk.bibliotech.repositories.in_memory.InMemoryBookRepository;
 import com.github.sthefanyk.bibliotech.use_cases.book.CreateBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.ListAllBooksUseCase;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +18,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/book")
 public class BookController {
 
+    @Autowired
     private CreateBookUseCase createBookUseCase;
-    private ListAllBooksUseCase listAllBooksUseCase;
 
-    public BookController(CreateBookUseCase createBookUseCase, ListAllBooksUseCase listAllBooksUseCase) {
-        this.createBookUseCase = createBookUseCase;
-        this.listAllBooksUseCase = listAllBooksUseCase;
-    }
+    @Autowired
+    private ListAllBooksUseCase listAllBooksUseCase;
 
     /**
      * CreateRequest

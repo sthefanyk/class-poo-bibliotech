@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.sthefanyk.bibliotech.use_cases.author.CreateAuthorUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.author.ListAllAuthorsUseCase;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,13 +16,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/author")
 public class AuthorController {
 
+    @Autowired
     private CreateAuthorUseCase createAuthorUseCase;
-    private ListAllAuthorsUseCase listAllAuthorsUseCase;
 
-    public AuthorController(CreateAuthorUseCase createAuthorUseCase, ListAllAuthorsUseCase listAllAuthorsUseCase) {
-        this.createAuthorUseCase = createAuthorUseCase;
-        this.listAllAuthorsUseCase = listAllAuthorsUseCase;
-    }
+    @Autowired
+    private ListAllAuthorsUseCase listAllAuthorsUseCase;
 
     /**
      * CreateRequest

@@ -1,18 +1,38 @@
-GET http://localhost:3000/book
+GET http://localhost:3333/book
 
 ###
-GET http://localhost:3000/book/7cd580c3-fe61-41e3-a4b5-14f698faa24b
+GET http://localhost:3333/book/7cd580c3-fe61-41e3-a4b5-14f698faa24b
 
 ###
-POST http://localhost:3000/book
+POST http://localhost:3333/book
 content-type: application/json
 
 {
     "isbn": "978-8575225633",    
     "title": "Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos",    
     "description": "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.",    
-    "publicationDate": "2023-09-24",    
-    "authorId": "ea24035b-28ce-4385-8e5f-50d8cb5a754e",    
+    "publicationDate": "2016-09-01",    
+    "authorId": "7abbfc00-f0c2-4f40-a8ec-f6b5c19cf17c",    
+    "publisher": "Novatec Editora",    
+    "pages": 300,    
+    "tags": [
+        "ALGORITHMS",
+        "SOFTWARE_DEVELOPMENT"
+    ],    
+    "language": "PORTUGUESE",
+    "coverUrl": "https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg"
+}
+
+###
+POST http://localhost:3333/book
+content-type: application/json
+
+{
+    "isbn": "978-8576082675",    
+    "title": "Código Limpo: Habilidades Práticas do Agile Software",    
+    "description": "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.",    
+    "publicationDate": "2016-09-01",    
+    "authorId": "7abbfc00-f0c2-4f40-a8ec-f6b5c19cf17c",    
     "publisher": "Novatec Editora",    
     "pages": 300,    
     "tags": [

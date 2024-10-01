@@ -1,10 +1,13 @@
 package com.github.sthefanyk.bibliotech.models;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.github.sthefanyk.bibliotech.utils.DateUtils;
 
@@ -42,6 +45,17 @@ public class Book {
         this.coverUrl = new BookCoverUrl(coverUrl);
     }
 
+    public String getFormatPublicationDate() {
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy", Locale.forLanguageTag("pt-BR"));
+        return this.publicationDate.format(outputFormatter);
+    }
+
+    public String getFormattedTags() {
+        return tags.stream()
+                   .map(Tag::getDisplayName)
+                   .collect(Collectors.joining(", "));
+    }
+
     public UUID getId() {
         return id;
     }
@@ -55,7 +69,7 @@ public class Book {
         return description;
     }
     public LocalDate getPublicationDate() {
-        return publicationDate;
+        return publicationDate; // 1 de setembro de 2016
     }
     public Author getAuthor() {
         return author;

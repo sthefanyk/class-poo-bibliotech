@@ -1,22 +1,32 @@
 package com.github.sthefanyk.bibliotech.models;
 
 public enum Tag {
-    ARTIFICIAL_INTELLIGENCE,
-    MACHINE_LEARNING,
-    DATA_SCIENCE,
-    SOFTWARE_DEVELOPMENT,
-    WEB_DEVELOPMENT,
-    MOBILE_DEVELOPMENT,
-    DATABASES,
-    NETWORKING,
-    CYBERSECURITY,
-    CLOUD_COMPUTING,
-    DEVOPS,
-    PROGRAMMING_LANGUAGES,
-    ALGORITHMS,
-    DATA_STRUCTURES,
-    OPERATING_SYSTEMS,
-    HUMAN_COMPUTER_INTERACTION;
+    ARTIFICIAL_INTELLIGENCE("Inteligência Artificial"),
+    MACHINE_LEARNING("Aprendizado de Máquina"),
+    DATA_SCIENCE("Ciência de Dados"),
+    SOFTWARE_DEVELOPMENT("Desenvolvimento de Software"),
+    WEB_DEVELOPMENT("Desenvolvimento Web"),
+    MOBILE_DEVELOPMENT("Desenvolvimento Mobile"),
+    DATABASES("Bancos de Dados"),
+    NETWORKING("Redes"),
+    CYBERSECURITY("Cibersegurança"),
+    CLOUD_COMPUTING("Computação em Nuvem"),
+    DEVOPS("DevOps"),
+    PROGRAMMING_LANGUAGES("Linguagens de Programação"),
+    ALGORITHMS("Algoritmos"),
+    DATA_STRUCTURES("Estruturas de Dados"),
+    OPERATING_SYSTEMS("Sistemas Operacionais"),
+    HUMAN_COMPUTER_INTERACTION("Interação Humano-Computador");
+
+    private final String displayName;
+
+    Tag(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return this.displayName;
+    }
 
     public static Tag fromString(String tag) {
         try {

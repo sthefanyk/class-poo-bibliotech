@@ -1,10 +1,10 @@
-GET http://localhost:3000/author
+GET http://localhost:3333/author
 
 ###
-GET http://localhost:3000/author/ea24035b-28ce-4385-8e5f-50d8cb5a754e
+GET http://localhost:3333/author/ea24035b-28ce-4385-8e5f-50d8cb5a754e
 
 ###
-POST http://localhost:3000/author
+POST http://localhost:3333/author
 content-type: application/json
 
 {
@@ -13,7 +13,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3000/author
+POST http://localhost:3333/author
 content-type: application/json
 
 {

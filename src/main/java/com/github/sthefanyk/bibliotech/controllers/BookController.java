@@ -3,7 +3,6 @@ package com.github.sthefanyk.bibliotech.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.sthefanyk.bibliotech.use_cases.author.FindByIdAuthorUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.CreateBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.FindByIdBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.ListAllBooksUseCase;

@@ -1,8 +1,18 @@
 package com.github.sthefanyk.bibliotech.models;
 
 public enum Language {
-    PORTUGUESE,
-    ENGLISH;
+    PORTUGUESE("Português"),
+    ENGLISH("English");
+
+    private final String displayName;
+
+    Language(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return this.displayName;
+    }
 
     public static Language fromString(String language) {
         try {

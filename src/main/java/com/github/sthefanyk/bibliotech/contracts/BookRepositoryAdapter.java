@@ -10,4 +10,5 @@ public interface BookRepositoryAdapter {
     void delete(String id);
     Book findByid(String id);
     List<Book> listAll();
+    List<Book> searchMany(int page, int limit, String search);
 }

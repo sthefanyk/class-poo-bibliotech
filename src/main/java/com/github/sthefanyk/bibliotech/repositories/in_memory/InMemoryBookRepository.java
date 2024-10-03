@@ -2,6 +2,7 @@ package com.github.sthefanyk.bibliotech.repositories.in_memory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.github.sthefanyk.bibliotech.contracts.BookRepositoryAdapter;
 import com.github.sthefanyk.bibliotech.models.Book;
@@ -45,5 +46,14 @@ public class InMemoryBookRepository implements BookRepositoryAdapter{
     @Override
     public List<Book> listAll() {
         return books;
+    }
+
+    @Override
+    public List<Book> searchMany(int page, int limit, String search) {
+        return books.stream()
+            .filter(book -> book.getTitle().contains(search))
+            .skip((page - 1) * limit)
+            .limit(limit)
+            .collect(Collectors.toList());
     }
 }

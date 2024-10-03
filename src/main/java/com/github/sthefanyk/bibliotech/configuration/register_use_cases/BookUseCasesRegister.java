@@ -8,6 +8,7 @@ import com.github.sthefanyk.bibliotech.contracts.BookRepositoryAdapter;
 import com.github.sthefanyk.bibliotech.use_cases.book.CreateBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.FindByIdBookUseCase;
 import com.github.sthefanyk.bibliotech.use_cases.book.ListAllBooksUseCase;
+import com.github.sthefanyk.bibliotech.use_cases.book.SearchManyBooksUseCase;
 
 @Configuration
 public class BookUseCasesRegister {
@@ -32,6 +33,11 @@ public class BookUseCasesRegister {
     @Bean
     public FindByIdBookUseCase findByIdBookUseCase() {
         return new FindByIdBookUseCase(this.bookRepository);
+    }
+
+    @Bean
+    public SearchManyBooksUseCase searchManyBooksUseCase() {
+        return new SearchManyBooksUseCase(this.bookRepository);
     }
 
 }

@@ -74,6 +74,18 @@ public class JdbcBookRepository implements BookRepositoryAdapter {
         return jdbcTemplate.query(sql, new BookRowMapper());
     }
 
+    @Override
+    public List<Book> searchMany(int page, int limit, String search) {
+        String sql = "SELECT * FROM books";
+        List<Book> books = jdbcTemplate.query(sql, new BookRowMapper());
+
+        return books.stream()
+            .filter(book -> book.getTitle().contains(search))
+            .skip((page - 1) * limit)
+            .limit(limit)
+            .collect(Collectors.toList());
+    }
+
     private class BookRowMapper implements RowMapper<Book> {
         @Override
         public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -95,6 +107,6 @@ public class JdbcBookRepository implements BookRepositoryAdapter {
             return new Book(Optional.of(id), isbn, title, description, publicationDate.toString(), author, 
                     publisher, pages, tags, language, coverUrl);
         }
-    }
+    } 
 }
 

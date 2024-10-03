@@ -17,6 +17,24 @@ POST http://localhost:3333/author
 content-type: application/json
 
 {
-    "name": "John Doe",    
-    "biography": "johndoe biography"
+    "name": "Robert C. Martin",    
+    "biography": "Robert C. Martin biography"
 }
+
+
+
+###
+POST http://localhost:3333/author
+content-type: application/json
+
+{
+    "name": "Cathy O'Neil",    
+    "biography": "Cathy O'Neil é uma cientista de dados e autora do livro 'Weapons of Math Destruction'."
+}
+
+
+
+
+
+
+

@@ -30,16 +30,37 @@ content-type: application/json
 {
     "isbn": "978-8576082675",    
     "title": "Código Limpo: Habilidades Práticas do Agile Software",    
-    "description": "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado.",    
-    "publicationDate": "2016-09-01",    
-    "authorId": "7abbfc00-f0c2-4f40-a8ec-f6b5c19cf17c",    
-    "publisher": "Novatec Editora",    
-    "pages": 300,    
+    "description": "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento. Perdem-se a cada ano horas incontáveis e recursos importantes devido a um código mal escrito. Mas não precisa ser assim. O renomado especialista em software, Robert C. Martin, apresenta um paradigma revolucionário com Código limpo: Habilidades Práticas do Agile Software. Martin se reuniu com seus colegas do Mentor Object para destilar suas melhores e mais ágeis práticas de limpar códigos “dinamicamente” em um livro que introduzirá gradualmente dentro de você os valores da habilidade de um profissional de softwares e lhe tornar um programador melhor –mas só se você praticar.",    
+    "publicationDate": "2009-09-08",    
+    "authorId": "c186f9cd-df12-4057-bc76-c0e6f41d519b",    
+    "publisher": "Alta Books",    
+    "pages": 425,    
     "tags": [
-        "ALGORITHMS",
-        "SOFTWARE_DEVELOPMENT"
+        "SOFTWARE_DEVELOPMENT",
+        "DATA_STRUCTURES"
     ],    
     "language": "PORTUGUESE",
-    "coverUrl": "https://s3.novatec.com.br/capas-ampliadas/capa-ampliada-9788575225639.jpg"
+    "coverUrl": "https://m.media-amazon.com/images/I/51E2055ZGUL._SL1000_.jpg"
 }
+
+###
+POST http://localhost:3333/book
+content-type: application/json
+
+{
+    "isbn": "978-8575229217",    
+    "title": "Ciência de Dados: Princípios e Aplicações",    
+    "description": "Este livro explora os fundamentos da ciência de dados, cobrindo desde a coleta e análise de dados até a criação de modelos preditivos...",    
+    "publicationDate": "2019-09-15",    
+    "authorId": "fbbbbe99-f778-4981-b50f-3dc2bcba2186",    
+    "publisher": "Alta Books",    
+    "pages": 630,    
+    "tags": ["DATA_SCIENCE", "MACHINE_LEARNING"],    
+    "language": "PORTUGUESE",
+    "coverUrl": "https://m.media-amazon.com/images/I/812XfVTQwRL._SY466_.jpg"
+}
+
+
+
+
 
